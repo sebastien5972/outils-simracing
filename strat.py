@@ -22,7 +22,7 @@ class DONNEES:
         self.valeur_quantite_essence_course = str(valeur_quantite_essence_course)
         valeur_nbr_tour_plein = float(self.valeur_plein)/float(self.valeur_conso_tour)
         self.valeur_nbr_tour_plein = valeur_nbr_tour_plein
-     
+
                    
     def Calculer_stint(self):
         if float(self.valeur_nbr_tour) > float(self.valeur_nbr_tour_plein):
@@ -32,7 +32,11 @@ class DONNEES:
             self.valeur_nbr_stint = valeur_nbr_stint
 
             valeur_essence_stint = float(self.valeur_quantite_essence_course)/float(self.valeur_nbr_stint)
-            self.valeur_essence_stint = valeur_essence_stint
+            self.valeur_essence_stint = round(valeur_essence_stint, 2)
+
+            valeur_nbr_tour_stint = float(self.valeur_nbr_tour)/float(self.valeur_nbr_stint)
+            self.valeur_nbr_tour_stint = round(valeur_nbr_tour_stint, 2)
+
 
         else:
             valeur_nbr_stint  = 0
@@ -43,14 +47,13 @@ class DONNEES:
         
         
     def Presenter_strat(self):
-        course_sans_arret = ("le circuit ou tu vas rouler est " + self.nom_circuit + " avec la voiture "  + self.nom_voiture + "\nta conso au tour est de " + self.valeur_conso_tour + " litres, le maximum d'essence que tu puisses emporter est " + self.valeur_plein +  " litres" + "\nton temps moyen au tour est de " + self.valeur_tps_tour + " min, le temps de la course est de " + self.valeur_tps_course + " min\n\nsur la base des renseignements que tu nous a apporté, on peut calculer les données suivantes:\nle nombre de tours pour cette course sera de " + self.valeur_nbr_tour + "\nla quantité d'essence nécessaire pour la course sera de " + self.valeur_quantite_essence_course + " litres")
+        course_sans_arret = ("le circuit ou tu vas rouler est " + self.nom_circuit + " avec la voiture "  + self.nom_voiture + "\nta conso au tour est de " + self.valeur_conso_tour + " litres, le maximum d'essence que tu puisses emporter est " + self.valeur_plein +  " litres" + "\nton temps moyen au tour est de " + self.valeur_tps_tour + " min, le temps de la course est de " + self.valeur_tps_course + " min\n\nsur la base des renseignements que tu nous a apporté, on peut calculer les données suivantes:\nle nombre de tours pour cette course sera de " + self.valeur_nbr_tour + "\nla quantité d'essence nécessaire pour la course sera de " + self.valeur_quantite_essence_course + " litres" )
 
         if float(self.valeur_nbr_tour) > float(self.valeur_nbr_tour_plein):
-            print(course_sans_arret + "\n\nle nombre d'arrêt pour cette course sera de " + str(self.valeur_nbr_stint) + "\nl'essence nécessaire par stint sera de " + str(self.valeur_essence_stint))
+            print(course_sans_arret + "\n\nle nombre d'arrêt pour cette course sera de " + str(self.valeur_nbr_stint) + "\nl'essence nécessaire par stint sera de " + str(self.valeur_essence_stint) + "\nle nombre de tours par stint sera " + str(self.valeur_nbr_tour_stint) + "tours")
             
                             
-        else:
-            print(course_sans_arret) 
+       
             
 
         
