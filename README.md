@@ -23,3 +23,13 @@ cette petite appli à pour but d'aider dans la confection de stratégie de cours
     5.quantité d'essence par stint
 
     pour l'instant tout se passe dans la console, en attendant d'implémenter un interface graphique.
+
+
+# appli de redimensionnement des icons de skins pour RF2
+
+    prérequis: avoir en possession l'icone en 2048X1156
+
+    1.rentrer le nom de votre .DDS
+    2.après lancement de l'appli choisissez votre fichier .png
+    3.choisissez votre répertoire de sortie
+    
