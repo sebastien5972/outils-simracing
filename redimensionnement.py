@@ -14,13 +14,15 @@ file_path = filedialog.askopenfilename()
 print(file_path )
 
 
-
 def redimensionner (name_dds):
 
     file_save_directory = filedialog.askdirectory()
     print(file_save_directory)
      
     img = Image.open(file_path)
+
+    img_1024 = img.resize((2048, 1152))
+    img_1024.save(file_save_directory + '/' + name_dds + ('-icon-2048x1152.png'))
 
     img_1024 = img.resize((1024, 576))
     img_1024.save(file_save_directory + '/' + name_dds + ('-icon-1024x576.png'))
