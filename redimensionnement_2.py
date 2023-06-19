@@ -1,49 +1,46 @@
 from PIL import Image
 import tkinter as tk
 from tkinter import filedialog
-
+from pathlib import Path
 
 
  
 root = tk.Tk()
 root.withdraw()
 
-file_path = str(filedialog.askopenfilenames())
-print('le file path est: ' + file_path)
-list_fichiers = []
-list_fichiers.append(file_path)
-print(list_fichiers )
+file_path = filedialog.askopenfilenames(title='choisi les fichiers à redimensionner')
+list_fichiers_png = root.tk.splitlist(file_path)
+print(list_fichiers_png)
+print(list_fichiers_png[0])
+print(list_fichiers_png[1])
 
+file_save_directory = filedialog.askdirectory()
+print(file_save_directory)
 
-i = 0
-for name_dds in (list_fichiers):
-    print(name_dds)
-    print ('le premier dans la liste est: ' + name_dds[i])
-    print(i)
-    i += 1
-    print(i)
-print(list_fichiers[0], list_fichiers[1])
-"""def redimensionner (name_dds[i]):
+for i in (list_fichiers_png):
 
-    file_save_directory = filedialog.askdirectory()
-    print(file_save_directory)
-    
-    img = Image.open(file_path)
+    #p = Path(i)
+    #extensions = "".join(p.suffixes)
+    #nom_dds = str(i).removesuffix(extensions) 
+    nom_dds_1 = i[88:]
+    print(nom_dds_1)
+    p = Path(nom_dds_1)
+    extensions = "".join(p.suffixes)
+    nom_dds = str(nom_dds_1).removesuffix(extensions)
 
-    img_1024 = img.resize((2048, 1152))
-    img_1024.save(file_save_directory + '/' + name_dds + ('-icon-2048x1152.png'))
+    img = Image.open(i)
+
+    img_2048 = img.resize((2048, 1152))
+    img_2048.save(file_save_directory + nom_dds + ('-icon-2048x1152.png'))
 
     img_1024 = img.resize((1024, 576))
-    img_1024.save(file_save_directory + '/' + name_dds + ('-icon-1024x576.png'))
+    img_1024.save(file_save_directory + nom_dds + ('-icon-1024x576.png'))
 
     img_512 = img.resize((512, 288))
-    img_512.save(file_save_directory + '/' + name_dds + ('-icon-512x288.png'))
+    img_512.save(file_save_directory + nom_dds + ('-icon-512x288.png'))
 
     img_256 = img.resize((256, 144))
-    img_256.save(file_save_directory + '/' + name_dds + ('-icon-256x144.png'))
+    img_256.save(file_save_directory + nom_dds  + ('-icon-256x144.png'))
 
     img_128 = img.resize((128, 72))
-    img_128.save(file_save_directory + '/' + name_dds + ('-icon-128x72.png'))"""
-
-
-redimensionner()
+    img_128.save(file_save_directory + nom_dds + ('-icon-128x72.png')) 
