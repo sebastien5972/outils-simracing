@@ -52,13 +52,13 @@ class DONNEES:
         if float(self.valeur_nbr_tour) > float(self.valeur_nbr_tour_plein):
             print(course_sans_arret + "\n\nle nombre d'arrêt pour cette course sera de " + str(self.valeur_nbr_stint) + "\nl'essence nécessaire par stint sera de " + str(self.valeur_essence_stint) + "\nle nombre de tours par stint sera " + str(self.valeur_nbr_tour_stint) + "tours")
             
-                            
+strat01 = DONNEES(circuit, voiture, conso_tour, plein, tps_tour, tps_course)
+strat01.Calculer_stint()
+strat01.Presenter_strat()      
        
             
 
         
-strat01 = DONNEES(circuit, voiture, conso_tour, plein, tps_tour, tps_course)
-strat01.Calculer_stint()
-strat01.Presenter_strat() 
+ 
 
 
